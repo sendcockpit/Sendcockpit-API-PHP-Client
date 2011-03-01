@@ -1,0 +1,18 @@
+<table>
+    <tr>
+        <th>subscriberID</th>
+        <th>subscriberEmail</th>
+        {foreach from=$subscriberCustomFields item=itemCustomField}
+        <th>{$itemCustomField}</th>
+        {/foreach}
+    </tr>
+    {foreach from=$subscriber key=key item=item}
+    <tr>
+        <td>{$item->subscriberID} </td>
+        <td>{$item->subscriberEmail}</td>
+        {foreach from=$subscriberCustomFields key=keyCustomField item=itemCustomField}
+        <td>{$item->customFields.$keyCustomField}</td>
+        {/foreach}
+    </tr>
+    {/foreach}
+</table>

@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th>subscriberID</th>
+        <th>subscriberEmail</th>
+        <th>history</th>
+    </tr>
+{foreach from=$subscriber key=key item=item}
+<tr>
+    <td>{$item->subscriberID} </td>
+    <td>{$item->subscriberEmail}</td>
+    <td><a href="apiClient.php?action=request&apiService=apiGetSubscriberHistory&subscriberID={$item->subscriberID}&apiKey={$smarty.get.apiKey}&userID={$smarty.get.userID}">Show</a></td>
+</tr>
+{/foreach}
+</table>

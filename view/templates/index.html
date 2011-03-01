@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Sendcockpit API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <h1>Sendcockpit API Client for PHP</h1>
+    <form method="get" action="apiClient.php">
+        enter userID:<br/><input type="text" name="userID" maxlength="9" value="{$smarty.get.userID}" /><br/>
+        enter apiKey:<br/><input type="text" name="apiKey" maxlength="32" value="{$smarty.get.apiKey}" /><br/>
+        enter listID:<br/><input type="text" name="listID" maxlength="9" value="{$smarty.get.listID}" /> used for some services<br/>
+        enter subscriberID:<br/><input type="text" name="subscriberID" maxlength="9" value="{$smarty.get.subscriberID}" /> used for some services<br/>
+        choose service:<br/>
+        <select name="apiService">
+            <option value="apiGetList">list -> apiGetList</option>
+            <option value="apiGetSubscriber">subscriber -> apiGetSubscriber</option>
+            <option value="apiGetSubscriberUnsubscribes">unsubscriber -> apiGetSubscriberUnsubscribes</option>
+            <option value="apiGetSubscriberDetails">subscriber details -> apiGetSubscriberDetails</option>
+            <option value="apiGetSubscriberHistory">subscriber history -> apiGetSubscriberHistory</option>
+        </select>
+        <input type="hidden" name="action" value="request"/>
+        <input type="submit" value="submit" />
+    </form>
+    <br/>
+    <div id="response">
+        <h2>{$smarty.get.apiService} - Response</h2>
+
+        {$serviceTemplate}
+        
+    </div>
+</body>
+</html>

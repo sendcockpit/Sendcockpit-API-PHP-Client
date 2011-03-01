@@ -1,0 +1,12 @@
+<table>
+    <tr>
+        <th>newsletterID</th>
+        <th>newsletterName</th>
+    </tr>
+{foreach from=$subscriberHistory key=key item=item}
+<tr>
+    <td>{$item->newsletterID} </td>
+    <td>{$item->newsletterName}</td>
+</tr>
+{/foreach}
+</table>

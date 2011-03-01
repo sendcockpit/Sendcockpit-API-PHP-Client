@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>listID</th>
+        <th>listName</th>
+        <th>show subsbscriber</th>
+        <th>show subsbscriber details</th>
+    </tr>
+{foreach from=$list item=item}
+<tr>
+    <td>{$item->listID} </td>
+    <td>{$item->listName}</td>
+    <td><a href="apiClient.php?action=request&apiService=apiGetSubscriber&listID={$item->listID}&apiKey={$smarty.get.apiKey}&userID={$smarty.get.userID}">Show</a></td>
+    <td><a href="apiClient.php?action=request&apiService=apiGetSubscriberDetails&listID={$item->listID}&apiKey={$smarty.get.apiKey}&userID={$smarty.get.userID}">Show</a></td>
+</tr>
+{/foreach}
+</table>

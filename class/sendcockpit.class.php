@@ -25,11 +25,24 @@ class sendcockpit{
         else{
             $response =  $this->client->{$service}($parameter);
         }
-        if ($response->status == 200){
-            return $response;
-        }
+        return $response;
 
     }
+}
+
+class SOAPAuth{
+    
+	public $userid;
+	public $apikey;
+	public $version;
+    public $mode;
+
+    public function __construct($userid, $apikey, $version, $mode = 'test'){
+		$this->userid = $userid;
+		$this->apikey = $apikey;
+		$this->version = $version;
+        $this->mode = $mode;
+	}
 }
 
 ?>
